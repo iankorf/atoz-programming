@@ -1,12 +1,16 @@
 A to Z Programming
 ==================
 
-This is a collection of 26 programming problems that will improve your
-programming skill. For pedagogical reasons, many of these programs have a
-molecular biology theme and there is an assumption you are working in a
-Unix/Linux environment. Some problems require data files, which you will find
-in the `data` directory. Language-specific solutions and learning materials are
-provided in the various language directories.
+WARNING: this is highly volatile at the moment
+
+This is a collection of 26 exercises that will improve your programming skill.
+These exercises were built for the UC Davis class "MCB185: Programming for
+Biologists". For this reason, many of the exercises have a molecular biology
+theme. The class introduces the Unix/Linux command line environment, so there
+are a few areas where working in Unix/Linux is assumed. Some problems require
+data files, which you will find in the `data` directory. MCB185 is taught in
+Python, but solutions to these problems may be available in other langauges.
+See the various language directories for more information.
 
 - [acgt](#acgt)
 - [beat_box](#beat_box)
@@ -15,11 +19,31 @@ provided in the various language directories.
 - [enquire](#enquire)
 - [fizzprime](#fizzprime)
 - [gregory_leibniz](#gregory_leibniz)
-- [h...](#h...)
+- Lists start here
+- [hydropathy](#hydropathy)
 - [information](#information)
+- File input starts here
 - [jaccard_index](#jaccard_index)
 - [kullback_leibler](#kullback_leibler)
--
+- [low_complexity_filter](#low_complexity_filter)
+- Library starts here
+- [mcb185](#mcb185)
+- CLI starts here
+- [nt_entropy_filter](#n...)
+- [orf_finder](#orf_finder)
+- [phred_converter](#phred_converter)
+- [quartiles](#quartiles)
+- [rloop_finder](#rloop_finder)
+- [smith_waterman](#smith_waterman)
+- Dictionaries start here
+- [translate](#translate)
+- [u...](#u...)
+- [v...](#v...)
+- [weight_matrix](#weight_matrix)
+- [x...](#x...)
+- [y...](#y...)
+- [z...](#z...)
+
 
 ## acgt ##
 
@@ -184,7 +208,23 @@ termination is related to binary search because each iteration gets closer and
 closer to the answer. Developers often have a choice about how they implement
 programs, so the random darts question is not specifically defined.
 
-## h... ##
+## hydropathy ##
+
+Write a program that calculates the hydropathy of a sequence given on the
+command line.
+
+Example command line and ouput.
+
+-----
+
+This program introduces:
+
+- Command line arguments (not a great way to input sequence)
+
+This program reinforces string manipulation, loops, and conditionals. There are
+sometimes many ways to implement an algorithm, and the search here can be done
+many ways. Hydropathy itself has many scientific definitions. Need reference to
+Kyte-Doolittle etc.
 
 ## information ##
 
@@ -278,21 +318,44 @@ This program introduces:
 This program reinforces the idea that there may be more than one way to solve a
 problem.
 
-## l... ##
+## low_complexity_filter ##
+
+Commmand line parameters for file, window size, threshold
+
+-----
+
+Introduces:
+
+- Windowing algorithm
+- FASTA file reading (single record only)
+- Converting a string into a list (some languages)
+
+
+Forward reference to rloop and shannon
 
 ## m... ##
 
-## n50? ##
+## n... ##
 
 ## orf ##
 
-## paradox? parser? ##
+Find open reading frames using ATG..STOP.
 
-## quality values? ##
+## paradox? phred? ##
+
+## quality values? quartiles? ##
+
+Many ways to calculate quartiles... interesting. Good place for stats in
+general.
 
 ## rloop_finder ##
 
+The faster windowing algorithm here. Also re-using G + C instead of
+re-calculating everything.
+
 ## shannon_filter ##
+
+Argparse and FASTA reader with faster windowing. Do this all the right way.
 
 ## translate ##
 
