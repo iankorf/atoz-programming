@@ -16,57 +16,54 @@ See the various language directories for more information.
 - [beat_box](#beat_box)
 - [celsius](#celsius)
 - [dna_tm](#dna_tm)
-- [enquire](#enquire)
+- [euler](#euler)
 - [fizzprime](#fizzprime)
-- [gregory_leibniz](#gregory_leibniz)
-- Lists start here
+- [gregory](#gregory)
 - [hydropathy](#hydropathy)
 - [information](#information)
-- File input starts here
-- [jaccard_index](#jaccard_index)
-- [kullback_leibler](#kullback_leibler)
-- [low_complexity_filter](#low_complexity_filter)
-- Library starts here
-- [mcb185](#mcb185)
-- CLI starts here
-- [nt_entropy_filter](#n...)
+- [jaccard](#jaccard)
+- [kolormatch](#kolormatch)
+- [low_entropy](#low_entropy)
+- [molbio](#molbio)
+- [n50](#n50)
 - [orf_finder](#orf_finder)
-- [phred_converter](#phred_converter)
-- [quartiles](#quartiles)
-- [rloop_finder](#rloop_finder)
-- [smith_waterman](#smith_waterman)
-- Dictionaries start here
-- [translate](#translate)
-- [u...](#u...)
-- [v...](#v...)
-- [weight_matrix](#weight_matrix)
-- [x...](#x...)
+- [prosite](#prosite)
+- [quality_trim](#quality_trim)
+- [ribosome](#ribosome)
+- [sigpep](#sigpep)
+- [transfac](#transfac)
+- [unique_kmers](#unique_kmers)
+- [viterbi](#viterbi)
+- [water](#water)
+- [xref](#xref)
 - [y...](#y...)
 - [z...](#z...)
 
 
 ## acgt ##
 
-Write a program that randomly prints out a single letter of DNA. Like most
-eukarytotic genomes, you are more likely to see an A or T than C or G.
+Write a program that randomly prints out a single letter of DNA. In most
+eukarytotic genomes, you are more likely to see an A or T than C or G, so make
+the program do that also. In the human genome, about 60% is A/T and 40% is C/G.
 
------
+Example of command line and output
 
-This program introduces:
-
-- Conditional statement (if...)
-- Random number generator
-- Program output (print...)
+```
+$ python3 acgt.py
+A
+```
 
 ## beat_box ##
 
 Write a game where the player must try to hit the enter/return button exactly 4
 seconds apart. It works like this:
 
-- Computer: "Get ready to hit the enter/return key exactly 4 seconds apart"
+- Computer: "Get ready to hit the enter key exactly 4 seconds apart!"
+- Computer: "Press enter when ready..."
 - Computer: waits for key press
 - Player: presses key
 - Computer: starts timer
+- Computer: "Press the enter key after exactly 4 seconds"
 - Player: presses key a second time
 - Computer: reports how much time has elapsed
 - Computer: start the whole process again
@@ -74,81 +71,87 @@ seconds apart. It works like this:
 Players may find it helpful to perform an 8-count in their heads while
 imagining a song with a tempo of 120 beats per minute.
 
------
+Example of command line and output:
 
-This program introduces:
-
-- Input from the user via the keyboard
-- Endless loop
-
-The program does not include a way to stop. Entering Control-C or Control-D
-will probably terminate the program.
+```
+$ python3 python/beat_box.py
+Get ready to hit the enter key exactly 4 seconds apart
+Press enter when ready...
+Press the enter key after exactly 4 seconds!
+Your time: 2.679888963699341 was off by 33.00 percent.
+Get ready to hit the enter key exactly 4 seconds apart!
+```
 
 ## celsius ##
 
 Write a program that converts from Celsius to Farenheit and vice-versa. The
 input should be in the form of "37C or "98.6F". If the input is "37C" the
 output should be "98.6F". After providing an answer, the program should
-continue accepting input.
+continue accepting input until the user enters a blank line.
 
------
+Example of command line and input/output:
 
-This program introduces:
-
-- String manipulation
-- Converting strings to floating point values
-
-This program also reinforces the use of the conditional statement and endless
-loop.
+```
+$ python3 celsius.py
+What temperature to convert (e.g. 37C or 98.6F): 37C
+37.0C is 98.6F
+What temperature to convert (e.g. 37C or 98.6F): 98.6F
+98.6F is 37.0C
+What temperature to convert (e.g. 37C or 98.6F):
+```
 
 ## dna_tm ##
 
 Write a program that allows users to compute the melting temperature (Tm) of an
 oligonucleotide (short DNA sequence) by typing (or copy-paste). The program
-should quit if the input is empty and report an error if the sequence contains
-letters other than A, C, G, or T. There are 2 formulas for Tm, which depend on
-the length of the sequence. Your code must define a function `tm()` that takes
-a sequence as an argument and returns the Tm. Here are the 2 equations:
+should quit if the input is empty and terminate with an error message if the
+sequence contains letters other than A, C, G, or T. There are 2 formulas for
+Tm, which depend on the length of the sequence. Your code must define a
+function `tm()` that takes a sequence as an argument and returns the Tm. Here
+are the 2 equations:
 
 - 13 nt or less: 2*A + 2*T + C*4 + G*4
 - 14 nt or more: 64.9 + 41 * (C + G -16.4) / (A + C + G + T)
 
------
+Example of command line and input/output
 
-This program introduces:
+```
+$ python3 dna_tm.py
+Oligo sequence: TAATACGACTCACTATAGGG
+The Tm of TAATACGACTCACTATAGGG is 47.680C
+```
 
-- Functions
+## euler ##
 
-This program also reinforces an endless loop, user input, numeric conversion,
-and string manipulation.
+Write a program that estimates Euler's number, e (2.71828...). This is the sum
+of 1/n! ad infinitum. Write your own factorial function rather than using
+`math.factorial()`. Print the value of e with each iteration of the loop.
+Terminate the loop when the value of e no longer changes (runs out of
+precision).
 
-## enquire ##
+Example command line and output:
 
-Write a program where the computer tries to guess a number you have in mind.
-The bounds are from 1 to 1000. The program should repeatedly ask: "is the
-number greater than X?", where X varies with each question. For example:
-
-- Computer: "Think of a number from 1 to 1000 and then hit the enter key"
-- User: thinking... imagines the number 789
-- User: hits the enter key
-- Computer: "Is the number greater than or equal to 500?"
-- User: "yes"
-- Computer: "Is the number greater than or equal to 750?"
-- User: "yes"
-- Computer: "Is the number greater than or equal to 875?"
-- User: "no"
-- etc until
-- Computer: "The number you were thinking of is 789"
-
------
-
-This program introduces:
-
-- binary search
-
-Binary search is a common algorithmic pattern. It is a very efficient way of
-searching for something if the answers are previously sorted (for example, the
-numbers from 1 to 1000 are in order).
+```
+$ python3 euler.py
+1.0
+2.0
+2.5
+2.6666666666666665
+2.708333333333333
+2.7166666666666663
+2.7180555555555554
+2.7182539682539684
+2.71827876984127
+2.7182815255731922
+2.7182818011463845
+2.718281826198493
+2.7182818282861687
+2.7182818284467594
+2.71828182845823
+2.718281828458995
+2.718281828459043
+2.7182818284590455
+```
 
 ## fizzprime ##
 
@@ -164,10 +167,26 @@ complexity: if the number is prime, follow the number with an asterisk. Your
 program must define a function `is_prime()` that takes a number as input and
 returns a Boolean.
 
------
-
-This program reinforces several previous concepts: loops, conditionals, and
-functions.
+```
+$ python3 fizzprime.py
+1
+2*
+Fizz*
+4
+Buzz*
+Fizz
+7*
+8
+Fizz
+Buzz
+11*
+Fizz
+13*
+14
+FizzBuzz
+16
+17*
+```
 
 ## gregory_leibniz ##
 
@@ -197,34 +216,20 @@ you want to terminate this part.
 
 https://en.wikipedia.org/wiki/Pi
 
------
-
-This program introduces:
-
-- Simulation as an algorithmic solution
-
-This program reinforces the use of conditionals and loops. The Nilakantha
-termination is related to binary search because each iteration gets closer and
-closer to the answer. Developers often have a choice about how they implement
-programs, so the random darts question is not specifically defined.
 
 ## hydropathy ##
 
-Write a program that calculates the hydropathy of a sequence given on the
-command line.
+Write a program that calculates the hydropathy of a sequence given as a command
+line argument.
 
 Example command line and ouput.
 
------
+Use K-D
 
-This program introduces:
 
-- Command line arguments (not a great way to input sequence)
+https://en.wikipedia.org/wiki/Hydrophilicity_plot
+https://en.wikipedia.org/wiki/Hydrophobicity_scales
 
-This program reinforces string manipulation, loops, and conditionals. There are
-sometimes many ways to implement an algorithm, and the search here can be done
-many ways. Hydropathy itself has many scientific definitions. Need reference to
-Kyte-Doolittle etc.
 
 ## information ##
 
@@ -245,11 +250,9 @@ python3 information.py 0.4 0.3 0.2 0.1
 
 This program introduces:
 
-- Input from the command line
-- The list (array, vector) type of container
 - Error messages
 
-This program reinforces the use of loops, conditionals, and functions.
+This program reinforces the use of lists, loops, conditionals, and functions.
 
 
 ## jaccard_index ##
@@ -300,7 +303,7 @@ include Taxicab (DTC) distance or Euclidean distance (D2).
 
 Work out these examples pedanticly as well.
 
-
+Data is in the file...
 
 Try solving this
 problem with DKL as well as DTC and D2. Which do you think works best?
@@ -313,6 +316,7 @@ https://en.wikipedia.org/wiki/Euclidean_distance
 
 This program introduces:
 
+- Structured data of some kind
 - Passing structured data to functions
 
 This program reinforces the idea that there may be more than one way to solve a
@@ -331,9 +335,17 @@ Introduces:
 - Converting a string into a list (some languages)
 
 
-Forward reference to rloop and shannon
+Forward reference to rloop and shannon and argparse?
 
-## m... ##
+## mcb185 ##
+
+Write a function library with a FASTA file reader that reads sequence records
+one at a time. Write a program that imports the library and reports the name
+and length of each sequence.
+
+-----
+
+This task introduces function libraries (modules, packages).
 
 ## n... ##
 
@@ -341,12 +353,14 @@ Forward reference to rloop and shannon
 
 Find open reading frames using ATG..STOP.
 
-## paradox? phred? ##
+## phred? ##
 
-## quality values? quartiles? ##
+## quartiles? ##
+
+Quality values? Quality Trimmer?
 
 Many ways to calculate quartiles... interesting. Good place for stats in
-general.
+general. Do some kind of analysis on the lengths of proteins in E. coli?
 
 ## rloop_finder ##
 
@@ -359,15 +373,38 @@ Argparse and FASTA reader with faster windowing. Do this all the right way.
 
 ## translate ##
 
-## u... ##
+This is just more windowing, but it's also reverse-complement intro. It's the
+dictionary lookup.
+
+## unique_kmers ##
+
+Which kmers occur just once in a genome? Which ones don't occur at all?
+
+This could also be, "which kmers occur in one genome but not the other?"
+
+This is adding dictionary items that you don't know exist or not.
 
 ## v... ##
 
+validate
+valine
+variant
+vector
+
 ## weight_matrix ##
+
+This is complex data
 
 ## x... ##
 
+xref - cross reference names from one list to another, this is one name to many names, so key -> array of key or key -> set or something
+
 ## y... ##
 
+Y.pestis? Which kmers are in Y.pestis but not E.coli and vice-versa. Could also
+do the Jaccard Index of the kmers. It could be an ortholog question too.
+
 ## z... ##
+
+
 
