@@ -24,9 +24,18 @@ Notes
 | sigpep        | (practice) benchmark?
 | transfac      | list of dict, PWM
 | unique_kmers  | dictionary write
-| variants      | which exons have variants?
-| water         | smith-waterman
-| xref          | ortholog finder by best reciprocal match
-| yaml          | yfg
-| zombie
+| viterbi       | the classic problem, with a very simple model
+| waterman      | smith-waterman
+| xref_gff      | find overlapping features various methods
+| y...
+| z...
+
+Things that could be added
+
+- SQLite
+- JSON, YAML, XML, serialization
+- OOP something
+- trees
+- variants
+- CIGAR, SAM
 
