@@ -37,5 +37,3 @@ while True:
 	t = tm1(seq)
 	print(f'The Tm of {seq} is {t:.3f}C')
 
-	#print(tm1(seq), tm2(seq))
-

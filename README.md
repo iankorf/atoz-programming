@@ -46,7 +46,7 @@ Write a program that randomly prints out a single letter of DNA. In most
 eukarytotic genomes, you are more likely to see an A or T than C or G, so make
 the program do that also. In the human genome, about 60% is A/T and 40% is C/G.
 
-Example of command line and output
+Example of command line and output:
 
 ```
 $ python3 acgt.py
@@ -74,7 +74,7 @@ imagining a song with a tempo of 120 beats per minute.
 Example of command line and output:
 
 ```
-$ python3 python/beat_box.py
+$ python3 beat_box.py
 Get ready to hit the enter key exactly 4 seconds apart
 Press enter when ready...
 Press the enter key after exactly 4 seconds!
@@ -216,16 +216,40 @@ you want to terminate this part.
 
 https://en.wikipedia.org/wiki/Pi
 
+```
+$ python3 gregory.py  | less
+Gregory odd-even: 3.140592653839794
+Gregory flip-flop: 3.140592653839794
+Nilakantha definite: 3.141839618929402
+Nilakantha indefinite: 3.1666666666666665
+Nilakantha indefinite: 3.1333333333333333
+Nilakantha indefinite: 3.145238095238095
+Nilakantha indefinite: 3.1396825396825396
+Nilakantha indefinite: 3.1427128427128426
+Nilakantha indefinite: 3.1408813408813407
+Nilakantha indefinite: 3.142071817071817
+Nilakantha indefinite: 3.1412548236077646
+Infinite: 2.6666666666666665
+Infinite: 3.0
+Infinite: 3.2
+Infinite: 3.3333333333333335
+Infinite: 3.4285714285714284
+Infinite: 3.0
+Infinite: 3.111111111111111
+Infinite: 3.2
+Infinite: 3.272727272727273
+Infinite: 3.3333333333333335
+```
 
 ## hydropathy ##
 
 Write a program that calculates the hydropathy of a sequence given as a command
-line argument.
+line argument. Use the Kyte-Doolittle hydropathy scale.
 
-Example command line and ouput.
-
-Use K-D
-
+```
+$ python/hydropathy.py  MVSLPTVLQRVILN
+Average hydropathy: 1.129
+```
 
 https://en.wikipedia.org/wiki/Hydrophilicity_plot
 https://en.wikipedia.org/wiki/Hydrophobicity_scales
@@ -234,28 +258,20 @@ https://en.wikipedia.org/wiki/Hydrophobicity_scales
 ## information ##
 
 Write a program that calculates the information content (entropy) of a
-frequency distribution whose values are given on the command line. Here is an
-example command line in Python.
+frequency distribution whose values are given on the command line.
 
-```
-python3 information.py 0.4 0.3 0.2 0.1
-```
-
-- The values from the command line must be converted to a container of floats
+- The values from the command line must be converted to a list of floats
 - The container must sum very close to 1.0 or produce an error message
 - The program must define a function `entropy()` that accepts the container
 - The program must return the result in log2
 
------
-
-This program introduces:
-
-- Error messages
-
-This program reinforces the use of lists, loops, conditionals, and functions.
+```
+$ python3 information.py 0.4 0.3 0.2 0.1
+1.8464393446710154
+```
 
 
-## jaccard_index ##
+## jaccard ##
 
 Given 2 files, each containing a list of gene names, determine the Jaccard
 Index between the two. The Jaccard Index is defined as the intersection divided
@@ -279,27 +295,21 @@ the more advanced progammers may choose to sort their list and then use binary
 search. Of course, there are more efficient ways to solve the problem using
 more organized data structures, but these are not introduced until...
 
-## kullback_leibler ##
+## kolormatch ##
 
 Given a color in the form of RGB values (e.g. 255, 254, 7), determine the
 official HTML color name that it is closest to (e.g. 255, 255, 0 is yellow).
-Use Kullback-Leibler divergence to determine the similarity of two colors. You
-will have to convert RGB values from their usual byte scale (0-255) to
-probabilities (0.0 to 1.0).
-
-Need to explain DKL better and include a simple example with easy base 2
-values.
 
 
-Your DKL function should take 2 arguments (force them to figure out how to pass
-containers rather than individual values).
 
-dkl(a, b) not dkl(r1, g1, b1, r2, g2, b2)
+Your distance function should take 2 arguments (force them to figure out how to
+pass containers rather than individual values).
+
+
 
 This is either a struct or tuple or list
 
-Kullback-Leibler (DKL) is but one of many ways to compare histograms. Others
-include Taxicab (DTC) distance or Euclidean distance (D2).
+Taxicab (DTC) distance or Euclidean distance (D2).
 
 Work out these examples pedanticly as well.
 
@@ -322,7 +332,7 @@ This program introduces:
 This program reinforces the idea that there may be more than one way to solve a
 problem.
 
-## low_complexity_filter ##
+## low_entropy ##
 
 Commmand line parameters for file, window size, threshold
 
