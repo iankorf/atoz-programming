@@ -8,7 +8,7 @@ Notes
 | celsius       | strings, conversion, break, error check
 | dna_tm        | function, string count, loop, error
 | euler         | definite & indefinite loop, float precision
-| fasta_seq     | sys.argv
+| fasta_file    | sys.argv
 | gregory       | simulation, mostly practice
 | hydropathy    | lists for lookup
 | infomation    | lists as containers, library
@@ -19,21 +19,13 @@ Notes
 | n50           | practice
 | orfs          | dictionary
 | prosite       | regex, dict fill
-| q...          |
-| r...          |
-| s...          |
-| transfac      | list of dict, PWM
+| quorum        | read a pwm and determine IUPAC letter
+| ribosome      | create kozak consesus from reading GenBank
+| smith         | smith-waterman
+| thalassian    | Elvish, complex data
 | upgma         | clustering
 | viterbi       | the classic problem, with a very simple model
-| waterman      | smith-waterman
+| word_search   | navigate a block of letters finding words suffix tree
 | xref_gff      | find overlapping features various methods
 | yaml_gff      | convert gff to yaml with parent-child relationships
-| zoggle        | boggle infinite
-
-Things that could be added
-
-- OOP something
-- trees NJ
-- variants
-- CIGAR, SAM
-- threads
+| zombie        | jaccard kmer similarity to dissimilar introns

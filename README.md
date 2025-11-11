@@ -1,43 +1,36 @@
 A to Z Programming
 ==================
 
-WARNING: this is highly volatile at the moment
-
-This is a collection of 26 exercises that will improve your programming skill.
-These exercises were built for the UC Davis class "MCB185: Programming for
-Biologists". For this reason, many of the exercises have a molecular biology
-theme. The class introduces the Unix/Linux command line environment, so there
-are a few areas where working in Unix/Linux is assumed. Some problems require
-data files, which you will find in the `data` directory. MCB185 is taught in
-Python, but solutions to these problems may be available in other langauges.
-See the various language directories for more information.
+This is a collection of 26 bioinformatics-themed coding exercises that will
+improve your programming skill. Some problems require data files, which you
+will find in the `data` directory.
 
 - [acgt](#acgt)
-- [beat_box](#beat_box)
+- [bits](#bits)
 - [celsius](#celsius)
 - [dna_tm](#dna_tm)
 - [euler](#euler)
-- [fizzprime](#fizzprime)
+- [fasta_file](#fasta_file)
 - [gregory](#gregory)
 - [hydropathy](#hydropathy)
 - [information](#information)
 - [jaccard](#jaccard)
-- [kolormatch](#kolormatch)
+- [kmer_count](#kmer_count)
 - [low_entropy](#low_entropy)
-- [molbio](#molbio)
+- [mc_birthday](#mc_birthday)
 - [n50](#n50)
-- [orf_finder](#orf_finder)
+- [orfs](#orfs)
 - [prosite](#prosite)
-- [quality_trim](#quality_trim)
+- [quorum](#quorum)
 - [ribosome](#ribosome)
-- [sigpep](#sigpep)
-- [transfac](#transfac)
-- [unique_kmers](#unique_kmers)
+- [smith](#smith)
+- [thalassian](#thalassian)
+- [upgma](#upgma)
 - [viterbi](#viterbi)
-- [water](#water)
-- [xref](#xref)
-- [y...](#y...)
-- [z...](#z...)
+- [word_search](#word_search)
+- [xref_gff](#xref_gff)
+- [yaml_gff](#yaml_gff)
+- [zombie](#zombie)
 
 
 ## acgt ##
@@ -51,36 +44,13 @@ Example of command line and output:
 ```
 $ python3 acgt.py
 A
+$ python3 acgt.py
+T
 ```
 
-## beat_box ##
+## bits ##
 
-Write a game where the player must try to hit the enter/return button exactly 4
-seconds apart. It works like this:
 
-- Computer: "Get ready to hit the enter key exactly 4 seconds apart!"
-- Computer: "Press enter when ready..."
-- Computer: waits for key press
-- Player: presses key
-- Computer: starts timer
-- Computer: "Press the enter key after exactly 4 seconds"
-- Player: presses key a second time
-- Computer: reports how much time has elapsed
-- Computer: start the whole process again
-
-Players may find it helpful to perform an 8-count in their heads while
-imagining a song with a tempo of 120 beats per minute.
-
-Example of command line and output:
-
-```
-$ python3 beat_box.py
-Get ready to hit the enter key exactly 4 seconds apart
-Press enter when ready...
-Press the enter key after exactly 4 seconds!
-Your time: 2.679888963699341 was off by 33.00 percent.
-Get ready to hit the enter key exactly 4 seconds apart!
-```
 
 ## celsius ##
 
@@ -127,7 +97,7 @@ Write a program that estimates Euler's number, e (2.71828...). This is the sum
 of 1/n! ad infinitum. Write your own factorial function rather than using
 `math.factorial()`. Print the value of e with each iteration of the loop.
 Terminate the loop when the value of e no longer changes (runs out of
-precision).
+precision and repeats itself).
 
 Example command line and output:
 
@@ -153,42 +123,11 @@ $ python3 euler.py
 2.7182818284590455
 ```
 
-## fizzprime ##
+## fasta_file ##
 
-One of the classic programming interview questions is FizzBuzz.
+Write a program the creates a random fasta file.
 
-- Write the numbers from 1 to 100
-- If the number is evenly divisible by 3, print "Fizz" instead
-- If the number is evenly divisible by 5, print "Buzz" instead
-- If the number is evenly divisible by 3 and 5, print "FizzBuzz"
-
-In this program, you must follow the same rules as FizzBuzz with one added
-complexity: if the number is prime, follow the number with an asterisk. Your
-program must define a function `is_prime()` that takes a number as input and
-returns a Boolean.
-
-```
-$ python3 fizzprime.py
-1
-2*
-Fizz*
-4
-Buzz*
-Fizz
-7*
-8
-Fizz
-Buzz
-11*
-Fizz
-13*
-14
-FizzBuzz
-16
-17*
-```
-
-## gregory_leibniz ##
+## gregory ##
 
 Write a program that esimates Pi (3.1415...) using 3 different methods.
 
@@ -295,42 +234,9 @@ the more advanced progammers may choose to sort their list and then use binary
 search. Of course, there are more efficient ways to solve the problem using
 more organized data structures, but these are not introduced until...
 
-## kolormatch ##
+## kmer_count ##
 
-Given a color in the form of RGB values (e.g. 255, 254, 7), determine the
-official HTML color name that it is closest to (e.g. 255, 255, 0 is yellow).
-
-
-
-Your distance function should take 2 arguments (force them to figure out how to
-pass containers rather than individual values).
-
-
-
-This is either a struct or tuple or list
-
-Taxicab (DTC) distance or Euclidean distance (D2).
-
-Work out these examples pedanticly as well.
-
-Data is in the file...
-
-Try solving this
-problem with DKL as well as DTC and D2. Which do you think works best?
-
-https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
-https://en.wikipedia.org/wiki/Taxicab_geometry
-https://en.wikipedia.org/wiki/Euclidean_distance
-
------
-
-This program introduces:
-
-- Structured data of some kind
-- Passing structured data to functions
-
-This program reinforces the idea that there may be more than one way to solve a
-problem.
+Write a program that counts the kmers in a fasta file
 
 ## low_entropy ##
 
@@ -347,74 +253,59 @@ Introduces:
 
 Forward reference to rloop and shannon and argparse?
 
-## mcb185 ##
+## mc_birthday ##
 
-Write a function library with a FASTA file reader that reads sequence records
-one at a time. Write a program that imports the library and reports the name
-and length of each sequence.
+Birthday paradox...
 
------
+## n50 ##
 
-This task introduces function libraries (modules, packages).
+Various stats including n50
 
-## n... ##
+## orfs ##
 
-## orf ##
+Translate sequences
 
-Find open reading frames using ATG..STOP.
+## prosite ##
 
-## phred? ##
+Use dictionaries
 
-## quartiles? ##
+## quorum ##
 
-Quality values? Quality Trimmer?
+Find the best concensus sequence and IUPAC representation
 
-Many ways to calculate quartiles... interesting. Good place for stats in
-general. Do some kind of analysis on the lengths of proteins in E. coli?
+## ribosome ##
 
-## rloop_finder ##
+Create Kozak PWM from a GenBank file
 
-The faster windowing algorithm here. Also re-using G + C instead of
-re-calculating everything.
+## smith ##
 
-## shannon_filter ##
+Smith-Waterman
 
-Argparse and FASTA reader with faster windowing. Do this all the right way.
+## thalassian ##
 
-## translate ##
+Create Elvish from text
 
-This is just more windowing, but it's also reverse-complement intro. It's the
-dictionary lookup.
+## upgma ##
 
-## unique_kmers ##
+Classic clustering algorithm
 
-Which kmers occur just once in a genome? Which ones don't occur at all?
+## viterbi ##
 
-This could also be, "which kmers occur in one genome but not the other?"
+Viterbi
 
-This is adding dictionary items that you don't know exist or not.
+## word_search ##
 
-## v... ##
+Find words in a grid of letters (like Boggle)
 
-validate
-valine
-variant
-vector
+## xref_gff ##
 
-## weight_matrix ##
+Find overlapping features in 2 gff files
 
-This is complex data
+## yaml_gff ##
 
-## x... ##
+Convert GFF to YAML preserving parent-child relationships in genes. Infer
+introns and UTRs.
 
-xref - cross reference names from one list to another, this is one name to many names, so key -> array of key or key -> set or something
+## zombie ##
 
-## y... ##
-
-Y.pestis? Which kmers are in Y.pestis but not E.coli and vice-versa. Could also
-do the Jaccard Index of the kmers. It could be an ortholog question too.
-
-## z... ##
-
-
-
+Determine if closely related genes are retrocopies.
